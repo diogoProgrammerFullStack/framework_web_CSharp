@@ -22,9 +22,9 @@ namespace Mark7.Steps
         }
 
         [Then(@"devo ver a mensagem de notificação '(.*)'")]
-        public void EntaoDevoVerAMensagemDeNotificacao(string notificacao)
+        public void EntaoDevoVerAMensagemDeNotificacao(string alerta)
         {
-            Assert.AreEqual(notificacao, loginPage.Notificacao().Text);
+            Assert.AreEqual(alerta, loginPage.Notificacao().Text);
         }
     }
 }

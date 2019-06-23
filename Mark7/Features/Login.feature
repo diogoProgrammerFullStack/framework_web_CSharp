@@ -10,27 +10,15 @@ Funcionalidade: Login
 		Quando eu faço login com 'diogooliveirati4@gmail.com' e '41679152'
 		Então devo ver a mensagem de boas vindas 'Olá, Diogo de OliveiraJulião'
 
-	Cenário: Senha Incorreta
-		
-		Quando eu faço login com 'diogooliveirati4@gmail.com' e '@abcde'
-		Então devo ver a mensagem de notificação 'Senha inválida.'
+		Esquema do Cenário: Tentar logar
 
-	Cenario: Usuário não existe
-		
-		Quando eu faço login com 'diogooliveirati3@gmail.com' e '41679152'
-		Então devo ver a mensagem de notificação 'Usuário não cadastrado.'
+		Quando eu faço login com <email> e <senha>
+		Então devo ver a mensagem de notificação <alerta>
 
-	Cenário: Senha Ausente
-
-		Quando eu faço login com 'diogooliveirati4@gmail.com' e ''
-		Então devo ver a mensagem de notificação 'Senha ausente.'
-
-	Cenário: Email Ausente
-
-		Quando eu faço login com '' e '41679152'
-		Então devo ver a mensagem de notificação 'Email incorreto ou ausente.'
-
-	Cenário: Email Incorreto
-
-		Quando eu faço login com 'diogooliveirati*gmail.com' e '41679152'
-		Então devo ver a mensagem de notificação 'Email incorreto ou ausente.'
+		Exemplos:
+		| email                        | senha      | alerta                        |
+		| 'diogooliveirati4@gmail.com' | '@abcde'   | 'Senha inválida.'             |
+		| 'diogooliveirati3@gmail.com' | '41679152' | 'Usuário não cadastrado.'     |
+		| 'diogooliveirati4@gmail.com' | ''         | 'Senha ausente.'              |
+		| ''                           | '41679152' | 'Email incorreto ou ausente.' |
+		| 'diogooliveirati*gmail.com'  | '41679152' | 'Email incorreto ou ausente.' |

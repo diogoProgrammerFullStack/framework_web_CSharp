@@ -1,6 +1,8 @@
 ﻿using Mark7.Common;
+using Mark7.Steps;
 using OpenQA.Selenium;
 using System.Linq;
+using System.Threading;
 
 namespace Mark7.Pages
 {
@@ -24,6 +26,25 @@ namespace Mark7.Pages
             _driver.FindElement(By.Id("insert-button")).Click();
             _driver.FindElement(By.CssSelector("input[name=title]")).SendKeys(titulo);
             _driver.FindElement(By.CssSelector("input[name=dueDate]")).SendKeys(data);
+            _driver.FindElement(By.CssSelector("button[type=submit]")).Click();
+
+        }
+
+        public void NovaTarefa2(Tarefa tarefa)
+        {
+            _driver.FindElement(By.Id("insert-button")).Click();
+            _driver.FindElement(By.CssSelector("input[name=title]")).SendKeys(tarefa.Titulo);
+            _driver.FindElement(By.CssSelector("input[name=dueDate]")).SendKeys(tarefa.Data);
+
+            var campoTags = _driver.FindElement(By.CssSelector(".bootstrap-tagsinput input"));
+
+            foreach (var tag in tarefa.Tags)
+            {
+                campoTags.SendKeys(tag);
+                campoTags.SendKeys(Keys.Tab);
+                Thread.Sleep(500);
+            }
+
             _driver.FindElement(By.CssSelector("button[type=submit]")).Click();
 
         }

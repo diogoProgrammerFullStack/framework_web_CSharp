@@ -87,81 +87,22 @@ namespace Mark7.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Senha Incorreta")]
-        public virtual void SenhaIncorreta()
+        [NUnit.Framework.DescriptionAttribute("Tentar logar")]
+        [NUnit.Framework.TestCaseAttribute("\'diogooliveirati4@gmail.com\'", "\'@abcde\'", "\'Senha inválida.\'", null)]
+        [NUnit.Framework.TestCaseAttribute("\'diogooliveirati3@gmail.com\'", "\'41679152\'", "\'Usuário não cadastrado.\'", null)]
+        [NUnit.Framework.TestCaseAttribute("\'diogooliveirati4@gmail.com\'", "\'\'", "\'Senha ausente.\'", null)]
+        [NUnit.Framework.TestCaseAttribute("\'\'", "\'41679152\'", "\'Email incorreto ou ausente.\'", null)]
+        [NUnit.Framework.TestCaseAttribute("\'diogooliveirati*gmail.com\'", "\'41679152\'", "\'Email incorreto ou ausente.\'", null)]
+        public virtual void TentarLogar(string email, string senha, string alerta, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Senha Incorreta", null, ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Tentar logar", null, exampleTags);
 #line 13
- this.ScenarioInitialize(scenarioInfo);
+  this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();
 #line 15
-  testRunner.When("eu faço login com \'diogooliveirati4@gmail.com\' e \'@abcde\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+  testRunner.When(string.Format("eu faço login com {0} e {1}", email, senha), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
 #line 16
-  testRunner.Then("devo ver a mensagem de notificação \'Senha inválida.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Usuário não existe")]
-        public virtual void UsuarioNaoExiste()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Usuário não existe", null, ((string[])(null)));
-#line 18
- this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 20
-  testRunner.When("eu faço login com \'diogooliveirati3@gmail.com\' e \'41679152\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 21
-  testRunner.Then("devo ver a mensagem de notificação \'Usuário não cadastrado.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Senha Ausente")]
-        public virtual void SenhaAusente()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Senha Ausente", null, ((string[])(null)));
-#line 23
- this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 25
-  testRunner.When("eu faço login com \'diogooliveirati4@gmail.com\' e \'\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 26
-  testRunner.Then("devo ver a mensagem de notificação \'Senha ausente.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Email Ausente")]
-        public virtual void EmailAusente()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Email Ausente", null, ((string[])(null)));
-#line 28
- this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 30
-  testRunner.When("eu faço login com \'\' e \'41679152\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 31
-  testRunner.Then("devo ver a mensagem de notificação \'Email incorreto ou ausente.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Email Incorreto")]
-        public virtual void EmailIncorreto()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Email Incorreto", null, ((string[])(null)));
-#line 33
- this.ScenarioInitialize(scenarioInfo);
-            this.ScenarioStart();
-#line 35
-  testRunner.When("eu faço login com \'diogooliveirati*gmail.com\' e \'41679152\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
-#line 36
-  testRunner.Then("devo ver a mensagem de notificação \'Email incorreto ou ausente.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
+  testRunner.Then(string.Format("devo ver a mensagem de notificação {0}", alerta), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Então ");
 #line hidden
             this.ScenarioCleanup();
         }
