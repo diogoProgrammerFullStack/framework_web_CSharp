@@ -136,6 +136,28 @@ namespace Mark7.Features
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Titulo muito curto")]
+        public virtual void TituloMuitoCurto()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Titulo muito curto", null, ((string[])(null)));
+#line 33
+ this.ScenarioInitialize(scenarioInfo);
+            this.ScenarioStart();
+#line 8
+ this.FeatureBackground();
+#line 35
+  testRunner.And("que \'123456789\' é a minha nova tarefa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 36
+  testRunner.And("esta tarefa deve ser concluida até \'04/04/2020\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "E ");
+#line 37
+  testRunner.When("eu faço o cadastro desta tarefa", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Quando ");
+#line 38
+  testRunner.Then("devo ver a mensagem de alerta \'10 caracteres é o mínimo permitido.\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Entao ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

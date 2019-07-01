@@ -7,7 +7,7 @@ Funcionalidade: Criar Tarefas
 	
 	Contexto: Login
 		Dado que estou logado com 'diogooliveirati4@gmail.com' e '41679152'
-
+		
 	Cenário: Nova Tarefa
 		
 		E que 'Revisar as aulas' é a minha nova tarefa
@@ -29,3 +29,10 @@ Funcionalidade: Criar Tarefas
 		Quando eu faço o cadastro desta tarefa
 		Entao devo ver a mensagem de alerta 'Tarefa duplicada.'
 		E devo ver somente 1 registro com o nome desta tarefa
+
+	Cenário: Titulo muito curto
+	
+		E que '123456789' é a minha nova tarefa
+		E esta tarefa deve ser concluida até '04/04/2020'
+		Quando eu faço o cadastro desta tarefa
+		Entao devo ver a mensagem de alerta '10 caracteres é o mínimo permitido.'

@@ -1,5 +1,4 @@
-﻿using Mark7.Common;
-using Mark7.Steps;
+﻿using Mark7.Steps;
 using OpenQA.Selenium;
 using System.Linq;
 using System.Threading;

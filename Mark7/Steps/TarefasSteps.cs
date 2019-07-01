@@ -2,9 +2,6 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
 namespace Mark7.Steps
@@ -31,6 +28,8 @@ namespace Mark7.Steps
         public void DadoQueEAMinhaNovaTarefa(string titulo)
         {
             novaTarefa.Titulo = titulo;
+            var mongo = new MongoHelper();
+            mongo.DeleteByTitle(titulo);
         }
 
         [Given(@"esta tarefa deve ser concluida até '(.*)'")]
